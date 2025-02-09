@@ -2,11 +2,13 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("dagger.hilt.android.plugin")
+    id("com.google.devtools.ksp")
 }
 
 android {
     namespace = "com.oneviewonestatepatternexample.oneviewonestatepatternexample"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.oneviewonestatepatternexample.oneviewonestatepatternexample"
@@ -56,4 +58,8 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    implementation(libs.hiltCompose)
+    implementation(libs.hilt)
+    ksp(libs.hiltCompiler)
+    ksp(libs.androidx.hilt.compiler)
 }
